@@ -23,8 +23,9 @@ function makeAnalysis(){
 }
 
 async function getCurrentTab() {;
-  let res = await fetch('http://localhost:3000/', {mode: 'cors'})
-  console.log(res.text());
+  fetch('http://localhost:3000/', {mode: 'cors'})
+  .then(res => res.text())
+  .then(text => console.log(text));
 
   let queryOptions = { active: true, currentWindow: true };
   let [tab] = await chrome.tabs.query(queryOptions);
