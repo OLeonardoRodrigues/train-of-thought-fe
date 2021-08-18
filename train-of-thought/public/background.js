@@ -22,7 +22,10 @@ function makeAnalysis(){
   },timeoutValue);
 }
 
-async function getCurrentTab() {
+async function getCurrentTab() {;
+  let res = await fetch('http://localhost:3000/', {mode: 'cors'})
+  console.log(res.text());
+
   let queryOptions = { active: true, currentWindow: true };
   let [tab] = await chrome.tabs.query(queryOptions);
   return tab;
